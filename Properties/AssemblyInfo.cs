@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using MelonLoader;
 
 [assembly: MelonGame("VRChat", "VRChat")]
-[assembly: MelonInfo(typeof(InstanceDejavu.InstanceDejavu), "Instance Dejavu", "1.0.0", "Yato#4499", "https://www.github.com/Kiokuu/InstanceDejavu")]
+[assembly: MelonInfo(typeof(InstanceDejavu.InstanceDejavu), "InstanceDejavu", "1.0.0", "Yato#4499", "https://www.github.com/Kiokuu/InstanceDejavu")]
 [assembly: MelonColor(ConsoleColor.DarkGreen)]
 
 // General Information about an assembly is controlled through the following 
