@@ -5,7 +5,7 @@ A VRChat [MelonLoader](https://github.com/LavaGang/MelonLoader) mod which adds a
 * Display a icon on instances you have visited before (in the current session).
 
 ## Compatability
-* Currently working on build 1160
+* Currently working on build 1170
 * This mod was made for Melonloader 0.5.3
 
 ## Installation
