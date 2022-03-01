@@ -34,7 +34,7 @@ namespace InstanceDejavu
                 HarmonyInstance.Patch(m, postfix: new HarmonyMethod(typeof(InstanceDejavu), nameof(OnInstanceContentButtonGenerationPostfix)));
             }
             
-            var selectWorldInstance = typeof(PageWorldInfo).GetMethods().Single(m => XrefUtils.CheckMethod(m, "Make Home"));
+            var selectWorldInstance = typeof(PageWorldInfo).GetMethods().Single(m => XrefUtils.CheckMethod(m, "Make Home") && m.Name.StartsWith("Method_Private_Void_") && m.Name.Length<22);
             HarmonyInstance.Patch(selectWorldInstance, postfix: new HarmonyMethod(typeof(InstanceDejavu), nameof(UpdateWorldMainPicker)));
             
             HarmonyInstance.Patch(typeof(RoomManager).GetMethod(nameof(RoomManager.Method_Public_Static_Boolean_ApiWorld_ApiWorldInstance_String_Int32_0)), 
