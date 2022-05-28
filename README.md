@@ -6,7 +6,7 @@ A VRChat [MelonLoader](https://github.com/LavaGang/MelonLoader) mod which adds a
 
 ## Compatability
 * Currently working on build 1203
-* This mod was made for Melonloader 0.5.3
+* This mod was made for Melonloader 0.5.4
 
 ## Installation
 * Download the [latest release](https://github.com/Kiokuu/InstanceDejavu/releases/latest) of the compiled DLL and place into the "VRChat/Mods" folder.
