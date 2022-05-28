@@ -36,10 +36,14 @@ namespace InstanceDejavu
             
             var selectWorldInstance = typeof(PageWorldInfo).GetMethods().Single(m => XrefUtils.CheckMethod(m, "Make Home") && m.Name.StartsWith("Method_Private_Void_") && m.Name.Length<22);
             HarmonyInstance.Patch(selectWorldInstance, postfix: new HarmonyMethod(typeof(InstanceDejavu), nameof(UpdateWorldMainPicker)));
-            
-            HarmonyInstance.Patch(typeof(RoomManager).GetMethod(nameof(RoomManager.Method_Public_Static_Boolean_ApiWorld_ApiWorldInstance_String_Int32_0)), 
-                postfix: new HarmonyMethod(typeof(InstanceDejavu), nameof(OnEnterWorld)));
-            
+
+            // Shift from _0 to _1 v1203. Blanket patching futureproofing.
+            foreach (var worldJoinMethod in typeof(RoomManager).GetMethods().Where(m =>
+                         m.Name.StartsWith("Method_Public_Static_Boolean_ApiWorld_ApiWorldInstance_String_Int32_")))
+            {
+                HarmonyInstance.Patch(worldJoinMethod, postfix: new HarmonyMethod(typeof(InstanceDejavu), nameof(OnEnterWorld)));
+            }
+
             MelonCoroutines.Start(OnUiManagerInit());
         }
 
